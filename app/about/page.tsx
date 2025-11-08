@@ -9,6 +9,7 @@ import Image from "next/image"
 
 export default function AboutPage() {
   const { t, language } = useLanguage()
+  const sectionWrapper = "mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10"
 
   const standForItems =
     language === "EN"
@@ -58,9 +59,9 @@ export default function AboutPage() {
       <Header />
 
       {/* Hero */}
-      <section className="py-16 md:py-24 bg-brand-gray">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center">
+      <section className="bg-brand-gray py-16 md:py-24">
+        <div className={sectionWrapper}>
+          <div className="mx-auto max-w-4xl text-center">
             <h1 className="font-serif text-4xl md:text-6xl font-bold text-brand-black mb-6">{t("about.title")}</h1>
             <p className="text-lg md:text-xl text-text-secondary leading-relaxed">{t("about.subtitle")}</p>
           </div>
@@ -69,8 +70,8 @@ export default function AboutPage() {
 
       {/* About Content */}
       <section className="py-16 md:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto space-y-12">
+        <div className={sectionWrapper}>
+          <div className="mx-auto max-w-4xl space-y-12">
             <div>
               <p className="text-lg text-text-secondary leading-relaxed mb-6">{t("mission.description")}</p>
             </div>
@@ -103,9 +104,9 @@ export default function AboutPage() {
       </section>
 
       {/* Principal Card */}
-      <section className="py-16 md:py-24 bg-brand-gray">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
+      <section className="bg-brand-gray py-16 md:py-24">
+        <div className={sectionWrapper}>
+          <div className="mx-auto max-w-4xl">
             <h2 className="font-serif text-3xl font-bold text-center text-brand-black mb-12">
               {t("about.meetAdvisor")}
             </h2>

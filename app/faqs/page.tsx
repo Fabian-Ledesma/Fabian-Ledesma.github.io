@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 export default function FAQsPage() {
   const { t } = useLanguage()
+  const sectionWrapper = "mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10"
 
   const faqs = [
     {
@@ -36,9 +37,9 @@ export default function FAQsPage() {
       <Header />
 
       {/* Hero */}
-      <section className="py-16 md:py-24 bg-brand-gray">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center">
+      <section className="bg-brand-gray py-16 md:py-24">
+        <div className={sectionWrapper}>
+          <div className="mx-auto max-w-4xl text-center">
             <h1 className="font-serif text-4xl md:text-6xl font-bold text-brand-black mb-6">{t("faqs.title")}</h1>
             <p className="text-lg md:text-xl text-text-secondary leading-relaxed">{t("faqs.subtitle")}</p>
           </div>
@@ -47,8 +48,8 @@ export default function FAQsPage() {
 
       {/* FAQs Content */}
       <section className="py-16 md:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-3xl mx-auto">
+        <div className={sectionWrapper}>
+          <div className="mx-auto max-w-3xl">
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
                 <AccordionItem

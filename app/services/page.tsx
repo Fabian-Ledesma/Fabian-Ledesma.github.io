@@ -8,6 +8,7 @@ import { Shield, Heart, TrendingUp, Users, FileText } from "lucide-react"
 
 export default function ServicesPage() {
   const { t } = useLanguage()
+  const sectionWrapper = "mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10"
 
   const services = [
     {
@@ -72,9 +73,9 @@ export default function ServicesPage() {
       <Header />
 
       {/* Hero */}
-      <section className="py-16 md:py-24 bg-brand-gray">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center">
+      <section className="bg-brand-gray py-16 md:py-24">
+        <div className={sectionWrapper}>
+          <div className="mx-auto max-w-4xl text-center">
             <h1 className="font-serif text-4xl md:text-6xl font-bold text-brand-black mb-6">
               {t("servicesPage.title")}
             </h1>
@@ -85,8 +86,8 @@ export default function ServicesPage() {
 
       {/* Services Grid */}
       <section className="py-16 md:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className={sectionWrapper}>
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
             {services.map((service) => {
               const Icon = service.icon
               return (
@@ -124,9 +125,9 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-brand-black relative">
+      <section className="relative bg-brand-black py-16 md:py-20">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
-        <div className="container px-4 md:px-6 text-center">
+        <div className={`${sectionWrapper} text-center`}>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-6">{t("servicesPage.cta.title")}</h2>
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">{t("servicesPage.cta.subtitle")}</p>
         </div>

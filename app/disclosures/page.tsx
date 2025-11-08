@@ -6,15 +6,16 @@ import { useLanguage } from "@/contexts/language-context"
 
 export default function DisclosuresPage() {
   const { t } = useLanguage()
+  const sectionWrapper = "mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10"
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
 
       {/* Hero */}
-      <section className="py-16 md:py-24 bg-brand-gray">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center">
+      <section className="bg-brand-gray py-16 md:py-24">
+        <div className={sectionWrapper}>
+          <div className="mx-auto max-w-4xl text-center">
             <h1 className="font-serif text-4xl md:text-6xl font-bold text-brand-black mb-6">
               {t("disclosures.title")}
             </h1>
@@ -25,8 +26,8 @@ export default function DisclosuresPage() {
 
       {/* Disclosures Content */}
       <section className="py-16 md:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
+        <div className={sectionWrapper}>
+          <div className="mx-auto max-w-4xl">
             <div className="prose prose-lg max-w-none">
               <div className="bg-brand-gray/50 rounded-2xl p-8 md:p-12 border-2 border-border">
                 <p className="text-text-secondary leading-relaxed text-base md:text-lg whitespace-pre-line">
