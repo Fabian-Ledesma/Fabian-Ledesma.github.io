@@ -1,5 +1,16 @@
-_site
-.sass-cache
-.jekyll-cache
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
-vendor
+
+# Dependency directories
+vendor/
+.bundle/
+
+# Temporary or log files
+tmp/
+log/
+
+# OS-specific cruft
+.DS_Store
+Thumbs.db
