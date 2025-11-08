@@ -64,6 +64,8 @@ export default function HomePage() {
     },
   ]
 
+  const sectionWrapper = "mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10"
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -81,8 +83,8 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="container px-4 md:px-6 relative">
-          <div className="max-w-6xl mx-auto">
+        <div className={`relative ${sectionWrapper}`}>
+          <div className="mx-auto w-full">
             <div className="rounded-3xl overflow-hidden shadow-2xl bg-white">
               <div className="relative min-h-[550px] sm:h-[600px] md:h-[650px]">
                 <div
@@ -164,7 +166,7 @@ export default function HomePage() {
 
       {/* Mission Section */}
       <section className="py-16 md:py-24">
-        <div className="container px-4 md:px-6">
+        <div className={sectionWrapper}>
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-serif text-3xl md:text-5xl font-bold text-brand-black mb-6">{t("mission.title")}</h2>
             <p className="text-lg md:text-xl text-text-secondary leading-relaxed">{t("mission.description")}</p>
@@ -173,8 +175,8 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 md:py-24 bg-brand-gray">
-        <div className="container px-4 md:px-6">
+      <section className="bg-brand-gray py-16 md:py-24">
+        <div className={sectionWrapper}>
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-5xl font-bold text-brand-black mb-4">{t("services.title")}</h2>
             <p className="text-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">{t("services.subtitle")}</p>
@@ -204,7 +206,7 @@ export default function HomePage() {
 
       {/* Process Section */}
       <section className="py-16 md:py-24">
-        <div className="container px-4 md:px-6">
+        <div className={sectionWrapper}>
           <h2 className="font-serif text-3xl md:text-5xl font-bold text-center text-brand-black mb-16">
             {t("process.title")}
           </h2>
@@ -242,8 +244,8 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-brand-gray">
-        <div className="container px-4 md:px-6">
+      <section className="bg-brand-gray py-16 md:py-24">
+        <div className={sectionWrapper}>
           <h2 className="font-serif text-3xl md:text-5xl font-bold text-center text-brand-black mb-12">
             {t("testimonials.title")}
           </h2>
@@ -269,9 +271,9 @@ export default function HomePage() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-16 md:py-20 bg-brand-black relative overflow-hidden">
+      <section className="relative overflow-hidden bg-brand-black py-16 md:py-20">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
-        <div className="container px-4 md:px-6 text-center">
+        <div className={`${sectionWrapper} text-center`}>
           <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-6">{t("cta.title")}</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Button
