@@ -1,216 +1,299 @@
-import Image from 'next/image'
-import Link from 'next/link'
+"use client"
 
-const services = [
-  {
-    title: 'Retirement Income Planning',
-    description:
-      'Design sustainable retirement income strategies tailored to your lifestyle and long-term goals.',
-  },
-  {
-    title: 'Tax-Efficient Growth',
-    description:
-      'Coordinate investment and insurance solutions that support growth while managing today’s tax exposure.',
-  },
-  {
-    title: 'Risk Management & Protection',
-    description:
-      'Safeguard your family or business with insurance strategies that align with your broader financial plan.',
-  },
-]
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { useLanguage } from "@/contexts/language-context"
+import Link from "next/link"
+import Image from "next/image"
+import { Shield, TrendingUp, Users, Heart, FileText } from "lucide-react"
 
-const testimonials = [
-  {
-    name: 'Lydia Carter',
-    role: 'Small Business Owner',
-    quote:
-      'Serene Eagle translated complex retirement options into a clear plan for my business and my family.',
-  },
-  {
-    name: 'Michael Owens',
-    role: 'Real Estate Investor',
-    quote:
-      'Their guidance helped me unlock tax-efficient strategies I didn’t know existed.',
-  },
-]
+export default function HomePage() {
+  const { t, language } = useLanguage()
 
-export default function Home() {
+  const services = [
+    {
+      title: t("services.lifeInsurance"),
+      description: t("services.lifeInsurance.desc"),
+      icon: Shield,
+      href: "/services/life-insurance",
+    },
+    {
+      title: t("services.disability"),
+      description: t("services.disability.desc"),
+      icon: Heart,
+      href: "/services/disability-insurance",
+    },
+    {
+      title: t("services.annuities"),
+      description: t("services.annuities.desc"),
+      icon: TrendingUp,
+      href: "/services/annuities",
+    },
+    {
+      title: t("services.longTermCare"),
+      description: t("services.longTermCare.desc"),
+      icon: Users,
+      href: "/services/long-term-care-tax-free",
+    },
+    {
+      title: t("services.groupHealth"),
+      description: t("services.groupHealth.desc"),
+      icon: FileText,
+      href: "/services/group-health",
+    },
+  ]
+
+  const testimonials = [
+    {
+      name: "Maria Rodriguez",
+      text: "The team helped me understand my insurance options in both English and Spanish. Their guidance was invaluable.",
+      rating: 5,
+    },
+    {
+      name: "Steve Chow",
+      text: "Finally found an advisor who takes time to educate rather than just sell. Highly recommend their services.",
+      rating: 5,
+    },
+    {
+      name: "Sarah Johnson",
+      text: "Professional, knowledgeable, and genuinely cared about protecting my family's future. Excellent experience.",
+      rating: 5,
+    },
+  ]
+
   return (
-    <main className="flex min-h-screen flex-col">
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800">
-        <div className="absolute inset-0 -z-10 opacity-40">
-          <div className="relative h-full w-full">
-            <Image
-              src="/images/serene-eagle-hero.jpg"
-              alt="Financial planning consultation"
-              fill
-              className="object-cover"
-              priority
-              sizes="100vw"
-            />
-          </div>
+    <div className="min-h-screen bg-white">
+      <Header />
+
+      {/* Hero Section with Rounded Container */}
+      <section className="relative py-8 md:py-16 lg:py-20 bg-brand-gray overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-[1200px] h-[1200px] md:w-[1400px] md:h-[1400px] opacity-8 -translate-x-1/2 -translate-y-1/2">
+          <Image
+            src="/images/eagle-logo.png"
+            alt=""
+            width={1400}
+            height={1400}
+            className="w-full h-full object-contain"
+            aria-hidden="true"
+          />
         </div>
-        <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-10 px-6 py-28 text-white sm:px-12 lg:px-16">
-          <div className="flex flex-col gap-6 text-balance text-center lg:text-left">
-            <span className="inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-1 text-sm font-medium uppercase tracking-wide text-white/80 backdrop-blur-2xl lg:self-start">
-              Trusted Advice. Tailored Strategies.
-            </span>
-            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-              Financial clarity that helps your wealth soar.
-            </h1>
-            <p className="text-lg text-white/80 sm:text-xl">
-              Serene Eagle Financial Strategies partners with growth-minded
-              families and business owners to craft resilient, tax-smart
-              financial plans that endure every season.
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
-            <Link
-              href="mailto:info@sereneeaglefinancialstrategies.com"
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
-            >
-              Schedule a consultation
-            </Link>
-            <Link
-              href="#services"
-              className="inline-flex items-center justify-center rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
-            >
-              Explore services
-            </Link>
+
+        <div className="container px-4 md:px-6 relative">
+          <div className="max-w-6xl mx-auto">
+            <div className="rounded-3xl overflow-hidden shadow-2xl bg-white">
+              <div className="relative min-h-[550px] sm:h-[600px] md:h-[650px]">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: "url(/images/serene-eagle-hero.jpg)",
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/60" />
+
+                {/* Content */}
+                <div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-12 py-12 sm:py-16">
+                  <h1
+                    className={`font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 text-balance leading-tight ${language === "ES" ? "whitespace-nowrap" : ""}`}
+                  >
+                    {t("hero.title")}
+                  </h1>
+                  <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mb-3 sm:mb-4 leading-relaxed">
+                    {t("hero.subtitle")}
+                  </p>
+                  <p className="text-sm sm:text-base md:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8">
+                    {t("hero.description")}
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <Button
+                      size="lg"
+                      className="rounded-full bg-brand-red hover:bg-brand-red-light text-white px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg"
+                      asChild
+                    >
+                      <Link href="/contact">{t("hero.getQuote")}</Link>
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="rounded-full border-2 border-brand-gold text-brand-gold hover:bg-brand-gold-light hover:text-white px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg bg-transparent"
+                      asChild
+                    >
+                      <Link href="/contact">{t("hero.bookCall")}</Link>
+                    </Button>
+                  </div>
+
+                  {/* Credibility Badges */}
+                  <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-8 sm:mt-12">
+                    <Badge
+                      variant="secondary"
+                      className="bg-white/10 text-white border-white/20 px-3 sm:px-4 py-2 text-xs sm:text-sm"
+                    >
+                      {t("badge.insuranceOnly")}
+                    </Badge>
+                    <Badge
+                      variant="secondary"
+                      className="bg-white/10 text-white border-white/20 px-3 sm:px-4 py-2 text-xs sm:text-sm"
+                    >
+                      {t("badge.independent")}
+                    </Badge>
+                    <Badge
+                      variant="secondary"
+                      className="bg-white/10 text-white border-white/20 px-3 sm:px-4 py-2 text-xs sm:text-sm"
+                    >
+                      {t("badge.educationFirst")}
+                    </Badge>
+                    <Badge
+                      variant="secondary"
+                      className="bg-white/10 text-white border-white/20 px-3 sm:px-4 py-2 text-xs sm:text-sm"
+                    >
+                      {t("badge.bilingual")}
+                    </Badge>
+                  </div>
+                </div>
+
+                {/* Gold accent curve */}
+                <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section
-        id="services"
-        className="bg-background px-6 py-20 sm:px-12 lg:px-16 xl:px-24"
-      >
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-12">
-          <div className="max-w-3xl space-y-4 text-center lg:text-left">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              Holistic planning for every stage
-            </h2>
-            <p className="text-base text-muted-foreground sm:text-lg">
-              From first investment to legacy stewardship, we blend insurance,
-              retirement, and tax strategies into a unified plan you can feel
-              confident about.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {services.map((service) => (
-              <article
-                key={service.title}
-                className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-card/80 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-              >
-                <h3 className="text-xl font-semibold text-foreground">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {service.description}
-                </p>
-              </article>
-            ))}
+      {/* Mission Section */}
+      <section className="py-16 md:py-24">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-brand-black mb-6">{t("mission.title")}</h2>
+            <p className="text-lg md:text-xl text-text-secondary leading-relaxed">{t("mission.description")}</p>
           </div>
         </div>
       </section>
 
-      <section className="bg-muted/40 px-6 py-20 sm:px-12 lg:px-16 xl:px-24">
-        <div className="mx-auto grid w-full max-w-5xl gap-10 lg:grid-cols-[1.1fr,0.9fr] lg:items-center">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              A collaborative approach to your goals
-            </h2>
-            <p className="text-base text-muted-foreground sm:text-lg">
-              We listen first, then build a roadmap with clear milestones,
-              tailored investment options, and insurance coverage that
-              safeguards what matters most.
-            </p>
-            <ul className="space-y-3 text-sm text-muted-foreground sm:text-base">
-              <li>• Fiduciary guidance rooted in transparency</li>
-              <li>• Coordinated strategies for families and businesses</li>
-              <li>• Ongoing monitoring and education to keep you informed</li>
-            </ul>
+      {/* Services Section */}
+      <section className="py-16 md:py-24 bg-brand-gray">
+        <div className="container px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-brand-black mb-4">{t("services.title")}</h2>
+            <p className="text-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">{t("services.subtitle")}</p>
           </div>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/60 bg-card shadow-lg">
-            <Image
-              src="/images/fabian-ledesma.jpg"
-              alt="Fabian Ledesma - Founder"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {services.map((service) => {
+              const Icon = service.icon
+              return (
+                <Card
+                  key={service.title}
+                  className="border-2 hover:border-brand-gold transition-all duration-300 hover:shadow-lg"
+                >
+                  <CardContent className="pt-8 pb-6 text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-gold/10 mb-6">
+                      <Icon className="w-8 h-8 text-brand-gold" />
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-brand-black mb-3">{service.title}</h3>
+                    <p className="text-text-secondary">{service.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      <section className="bg-background px-6 pb-20 sm:px-12 lg:px-16 xl:px-24">
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-12">
-          <div className="max-w-2xl text-center lg:text-left">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              What clients are saying
-            </h2>
-            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-              We aim to make complex strategies feel approachable and aligned
-              with your values.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {testimonials.map((testimonial) => (
-              <blockquote
-                key={testimonial.name}
-                className="flex h-full flex-col gap-4 rounded-2xl border border-border/60 bg-card/80 p-6 shadow-sm"
-              >
-                <p className="text-base text-muted-foreground">
-                  “{testimonial.quote}”
-                </p>
-                <footer className="mt-auto text-sm font-medium text-foreground">
-                  {testimonial.name}
-                  <span className="block text-xs font-normal text-muted-foreground">
-                    {testimonial.role}
-                  </span>
-                </footer>
-              </blockquote>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-border/60 bg-card/60 px-6 py-20 sm:px-12 lg:px-16 xl:px-24">
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 rounded-3xl bg-background/70 p-8 text-center shadow-lg backdrop-blur-sm sm:p-12">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Ready to move forward with confidence?
+      {/* Process Section */}
+      <section className="py-16 md:py-24">
+        <div className="container px-4 md:px-6">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-center text-brand-black mb-16">
+            {t("process.title")}
           </h2>
-          <p className="text-base text-muted-foreground sm:text-lg">
-            Let’s craft a tailored plan that balances growth, protection, and
-            peace of mind.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="tel:+17026573216"
-              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
-            >
-              Call (702) 657-3216
-            </Link>
-            <Link
-              href="mailto:info@sereneeaglefinancialstrategies.com"
-              className="inline-flex items-center justify-center rounded-full border border-border/60 px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-muted"
-            >
-              Email the team
-            </Link>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+              {[
+                {
+                  step: "01",
+                  title: t("process.step1"),
+                  description: t("process.step1.desc"),
+                },
+                {
+                  step: "02",
+                  title: t("process.step2"),
+                  description: t("process.step2.desc"),
+                },
+                {
+                  step: "03",
+                  title: t("process.step3"),
+                  description: t("process.step3.desc"),
+                },
+              ].map((item, index) => (
+                <div key={index} className="relative text-center">
+                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-brand-gold/10 border-2 border-brand-gold mb-6">
+                    <span className="font-serif text-3xl font-bold text-brand-gold">{item.step}</span>
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-brand-black mb-4">{item.title}</h3>
+                  <p className="text-text-secondary leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <footer className="bg-slate-950 px-6 py-10 text-center text-xs text-white/60 sm:px-12">
-        <p>
-          © {new Date().getFullYear()} Serene Eagle Financial Strategies. All
-          rights reserved.
-        </p>
-        <p className="mt-2">
-          8569 W. Farm Rd. Suite 100, #121, Las Vegas, Nevada 89131
-        </p>
-      </footer>
-    </main>
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-24 bg-brand-gray">
+        <div className="container px-4 md:px-6">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-center text-brand-black mb-12">
+            {t("testimonials.title")}
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-2">
+                <CardContent className="pt-6">
+                  <div className="flex mb-4">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <svg key={i} className="w-5 h-5 text-brand-gold fill-current" viewBox="0 0 20 20">
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-text-secondary mb-4 leading-relaxed">"{testimonial.text}"</p>
+                  <p className="font-semibold text-brand-black">— {testimonial.name}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section className="py-16 md:py-20 bg-brand-black relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
+        <div className="container px-4 md:px-6 text-center">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-6">{t("cta.title")}</h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <Button
+              size="lg"
+              className="rounded-full bg-brand-red hover:bg-brand-red-light text-white px-8 py-6 text-lg"
+              asChild
+            >
+              <Link href="/contact">{t("hero.getQuote")}</Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full border-2 border-brand-gold text-brand-gold hover:bg-brand-gold-light hover:text-white px-8 py-6 text-lg bg-transparent"
+              asChild
+            >
+              <Link href="/contact">{t("hero.bookCall")}</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
   )
 }
-

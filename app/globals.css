@@ -1,9 +1,19 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Custom brand colors for Serene Eagle Financial */
+  --brand-gold: #c9a227;
+  --brand-gold-light: #e9c859;
+  --brand-red: #b22222;
+  --brand-red-light: #e44e4e;
+  --brand-black: #0a0a0a;
+  --brand-white: #ffffff;
+  --brand-gray: #f7f7f7;
+  --text-secondary: #4b4b4b;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -75,8 +85,9 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: "Inter", "Geist", "Geist Fallback", system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -96,6 +107,14 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-light: var(--brand-gold-light);
+  --color-brand-red: var(--brand-red);
+  --color-brand-red-light: var(--brand-red-light);
+  --color-brand-black: var(--brand-black);
+  --color-brand-white: var(--brand-white);
+  --color-brand-gray: var(--brand-gray);
+  --color-text-secondary: var(--text-secondary);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -123,4 +142,3 @@
     @apply bg-background text-foreground;
   }
 }
-
