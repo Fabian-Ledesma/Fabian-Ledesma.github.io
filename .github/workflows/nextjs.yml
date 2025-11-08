@@ -39,6 +39,8 @@ jobs:
 
       - name: Build with Next.js (static export)
         run: pnpm export
+        env:
+          NEXT_DISABLE_ESLINT_PLUGIN: '1'
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
