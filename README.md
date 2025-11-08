@@ -18,6 +18,10 @@ This repository hosts the Serene Eagle Financial Strategies website using the Ne
   - `images.unoptimized` disables the built-in image optimizer—necessary for static hosting on GitHub Pages.
   - `output: 'export'` tells Next.js to write a fully static bundle (into `out/`) when `next build` runs. The Pages workflow uploads that directory.
 
+- **`postcss.config.mjs`**
+  - Loads the Tailwind 4 preset (`@tailwindcss/postcss`) so utility classes work.
+  - Adds `autoprefixer`, which automatically inserts vendor prefixes to keep CSS compatible across browsers during local builds and in GitHub Actions.
+
 - **GitHub Actions Workflow (`.github/workflows/nextjs.yml`)**
   - Installs pnpm, runs `pnpm export`, and deploys the `out/` folder to GitHub Pages.
   - Sets `NEXT_DISABLE_ESLINT_PLUGIN=1` during the export step so lint errors don’t block deployments.
