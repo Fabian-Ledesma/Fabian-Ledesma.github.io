@@ -55,7 +55,7 @@ export default function FAQsPage() {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="border-2 border-border rounded-lg px-6 data-[state=open]:border-brand-gold transition-colors"
+                  className="rounded-lg border border-border/70 bg-white px-6 shadow-sm transition-all data-[state=open]:border-2 data-[state=open]:border-brand-gold"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="font-serif text-lg md:text-xl font-bold text-brand-black pr-4">
