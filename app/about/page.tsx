@@ -136,7 +136,7 @@ export default function AboutPage() {
                       </div>
                       <div className="flex items-center gap-3 text-text-secondary">
                         <MapPin className="w-5 h-5 text-brand-gold" />
-                        <span>5718 Westheier Rd, Suite 210, Houston, TX 77057</span>
+                        <span>5718 Westheier Rd, Suite 920, Houston, TX 77057</span>
                       </div>
                       <div className="flex items-center gap-3 text-text-secondary">
                         <Languages className="w-5 h-5 text-brand-gold" />

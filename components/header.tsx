@@ -18,7 +18,6 @@ export function Header() {
     { name: t("nav.about"), href: "/about" },
     { name: t("nav.faqs"), href: "/faqs" },
     { name: t("nav.contact"), href: "/contact" },
-    { name: t("nav.disclosures"), href: "/disclosures" },
   ]
 
   return (
@@ -82,23 +81,23 @@ export function Header() {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-            <nav className="flex flex-col gap-4 mt-8">
+          <SheetContent side="right" className="w-[300px] sm:w-[360px] px-0">
+            <nav className="mt-10 space-y-1">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-text-secondary hover:text-brand-red transition-colors"
+                  className="block px-5 py-3 text-base font-semibold text-brand-black/90 hover:text-brand-red hover:bg-brand-gray/60 transition-colors rounded-r-full"
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="flex items-center gap-3 mt-4 pt-4 border-t">
+              <div className="flex items-center gap-3 mt-6 pt-6 border-t border-border px-5">
                 <button
                   onClick={() => setLanguage("EN")}
                   className={`text-sm font-medium transition-colors ${
-                    language === "EN" ? "text-brand-red" : "text-text-secondary"
+                    language === "EN" ? "text-brand-red" : "text-text-secondary hover:text-brand-gold"
                   }`}
                 >
                   EN
@@ -107,7 +106,7 @@ export function Header() {
                 <button
                   onClick={() => setLanguage("ES")}
                   className={`text-sm font-medium transition-colors ${
-                    language === "ES" ? "text-brand-red" : "text-text-secondary"
+                    language === "ES" ? "text-brand-red" : "text-text-secondary hover:text-brand-gold"
                   }`}
                 >
                   ES

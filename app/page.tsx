@@ -13,6 +13,11 @@ import { Shield, TrendingUp, Users, Heart, FileText } from "lucide-react"
 export default function HomePage() {
   const { t, language } = useLanguage()
 
+  const heroTitleLines =
+    language === "ES"
+      ? ["Vea su futuro financiero", "con claridad."]
+      : [t("hero.title")]
+
   const services = [
     {
       title: t("services.lifeInsurance"),
@@ -46,23 +51,42 @@ export default function HomePage() {
     },
   ]
 
-  const testimonials = [
-    {
-      name: "Maria Rodriguez",
-      text: "The team helped me understand my insurance options in both English and Spanish. Their guidance was invaluable.",
-      rating: 5,
-    },
-    {
-      name: "Steve Chow",
-      text: "Finally found an advisor who takes time to educate rather than just sell. Highly recommend their services.",
-      rating: 5,
-    },
-    {
-      name: "Sarah Johnson",
-      text: "Professional, knowledgeable, and genuinely cared about protecting my family's future. Excellent experience.",
-      rating: 5,
-    },
-  ]
+  const testimonials =
+    language === "ES"
+      ? [
+          {
+            name: "María Rodríguez",
+            text: "El equipo me ayudó a comprender mis opciones de seguro en inglés y en español. Su orientación fue invaluable.",
+            rating: 5,
+          },
+          {
+            name: "Esteban Chow",
+            text: "Por fin encontré un asesor que se toma el tiempo para educar en lugar de solo vender. Recomiendo mucho sus servicios.",
+            rating: 5,
+          },
+          {
+            name: "Sarah Johnson",
+            text: "Profesionales, con amplio conocimiento y realmente interesados en proteger el futuro de mi familia. Una experiencia excelente.",
+            rating: 5,
+          },
+        ]
+      : [
+          {
+            name: "Maria Rodriguez",
+            text: "The team helped me understand my insurance options in both English and Spanish. Their guidance was invaluable.",
+            rating: 5,
+          },
+          {
+            name: "Steve Chow",
+            text: "Finally found an advisor who takes time to educate rather than just sell. Highly recommend their services.",
+            rating: 5,
+          },
+          {
+            name: "Sarah Johnson",
+            text: "Professional, knowledgeable, and genuinely cared about protecting my family's future. Excellent experience.",
+            rating: 5,
+          },
+        ]
 
   const sectionWrapper = "mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10"
 
@@ -90,7 +114,7 @@ export default function HomePage() {
                 <div
                   className="absolute inset-0 bg-cover bg-center"
                   style={{
-                    backgroundImage: "url(/images/serene-eagle-hero.jpg)",
+                    backgroundImage: "url(/images/serene-eagle-hero-eagle-2.png)",
                   }}
                 />
                 <div className="absolute inset-0 bg-black/60" />
@@ -98,9 +122,13 @@ export default function HomePage() {
                 {/* Content */}
                 <div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-12 py-12 sm:py-16">
                   <h1
-                    className={`font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 text-balance leading-tight ${language === "ES" ? "whitespace-nowrap" : ""}`}
+                    className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 text-balance leading-tight"
                   >
-                    {t("hero.title")}
+                    {heroTitleLines.map((line, index) => (
+                      <span key={line} className={index === 0 ? "" : "block"}>
+                        {line}
+                      </span>
+                    ))}
                   </h1>
                   <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mb-3 sm:mb-4 leading-relaxed">
                     {t("hero.subtitle")}
