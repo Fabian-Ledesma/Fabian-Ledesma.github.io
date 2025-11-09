@@ -3,7 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
-import { Phone, MapPin, Languages } from "lucide-react"
+import { Phone, MapPin, Languages, Mail } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import Image from "next/image"
 
@@ -51,8 +51,8 @@ export default function AboutPage() {
 
   const fabianQuote =
     language === "EN"
-      ? "Specializing in the tax treatment of money, helping you build a tax-diversified retirement portfolio, so that you can KEEP more, SPEND more, and LEAVE more to those who depend on you."
-      : "Especializado en el tratamiento fiscal del dinero, ayudándole a construir una cartera de jubilación diversificada fiscalmente, para que pueda CONSERVAR más, GASTAR más y DEJAR más a quienes dependen de usted."
+      ? "Specializing in the tax treatment of money, helping you build a tax-diversified retirement portfolio, so that you can KEEP more, SPEND less, and LEAVE more to those who depend on you."
+      : "Especializado en el tratamiento fiscal del dinero, ayudándole a construir una cartera de jubilación diversificada fiscalmente, para que pueda CONSERVAR más, GASTAR menos y DEJAR más a quienes dependen de usted."
 
   return (
     <div className="min-h-screen bg-white">
@@ -133,6 +133,10 @@ export default function AboutPage() {
                       <div className="flex items-center gap-3 text-text-secondary">
                         <Phone className="w-5 h-5 text-brand-gold" />
                         <span>Direct: (281) 451-8104</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-text-secondary">
+                        <Mail className="w-5 h-5 text-brand-gold" />
+                        <span>fabianledesma@sbcglobal.net</span>
                       </div>
                       <div className="flex items-center gap-3 text-text-secondary">
                         <MapPin className="w-5 h-5 text-brand-gold" />

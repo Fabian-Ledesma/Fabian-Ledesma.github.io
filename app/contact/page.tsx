@@ -124,8 +124,8 @@ export default function ContactPage() {
                   </h3>
                   <p className="text-text-secondary leading-relaxed">
                     {language === "EN"
-                      ? "Prefer email? Reach us at contact@sereneeaglefinancialstrategies.com and we’ll respond within one business day."
-                      : "¿Prefiere el correo electrónico? Escríbanos a contact@sereneeaglefinancialstrategies.com y responderemos dentro de un día hábil."}
+                      ? "Prefer email? Reach us at fabianledesma@sbcglobal.net."
+                      : "¿Prefiere el correo electrónico? Escríbanos a fabianledesma@sbcglobal.net."}
                   </p>
                 </CardContent>
               </Card>

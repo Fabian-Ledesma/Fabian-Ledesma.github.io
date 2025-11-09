@@ -114,7 +114,7 @@ export default function HomePage() {
                 <div
                   className="absolute inset-0 bg-cover bg-center"
                   style={{
-                    backgroundImage: "url(/images/serene-eagle-hero-eagle-2.png)",
+                    backgroundImage: "url(/images/serene-eagle-hero-eagle-3.jpg)",
                   }}
                 />
                 <div className="absolute inset-0 bg-black/60" />
