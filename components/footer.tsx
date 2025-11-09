@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 
 export function Footer() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -40,8 +40,17 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-semibold text-brand-gold">{t("footer.hours")}</h4>
             <div className="space-y-2 text-sm text-gray-300">
-              <p>Monday – Friday: 9:00 AM – 5:00 PM Central Time (CT)</p>
-              <p>Closed Saturday & Sunday</p>
+              {language === "EN" ? (
+                <>
+                  <p>Monday – Friday: 9:00 AM – 5:00 PM Central Time (CT)</p>
+                  <p>Closed Saturday & Sunday</p>
+                </>
+              ) : (
+                <>
+                  <p>Lunes – Viernes: 9:00 AM – 5:00 PM Hora Central (CT)</p>
+                  <p>Cerrado Sábado y Domingo</p>
+                </>
+              )}
             </div>
             <div className="pt-4">
               <h5 className="font-semibold mb-2 text-brand-gold text-sm">{t("footer.quickLinks")}</h5>
